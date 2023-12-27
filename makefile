@@ -11,7 +11,7 @@ OBJ_DIR = obj
 BIN_DIR = bin
 TEST_DIR = test
 
-# Source files and object files
+# Source files and objeqct files
 MAIN_SRC = $(SRC_DIR)/main.cpp
 ASSISTANT_SRC = $(SRC_DIR)/employee/assistant.cpp
 
