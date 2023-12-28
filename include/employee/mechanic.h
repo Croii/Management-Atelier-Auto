@@ -3,16 +3,14 @@
 
 #include "employee.h"
 
-class Mechanic: public Employee
+class Mechanic : public Employee
 {
-private:
-    const double SALARY_COEFFICIENT = 1.5;
+    static const double SALARY_COEFFICIENT;
 
 public:
     Mechanic() = default;
-    Mechanic(int id, string firstName, string secondName, date birthDate, date employementDate) : Employee(id, firstName, secondName, birthDate, employementDate, SALARY_COEFFICIENT){};
+    Mechanic(string firstName, string secondName, date birthDate, date employementDate) : Employee(firstName, secondName, birthDate, employementDate, SALARY_COEFFICIENT){};
     void printEmployee() const;
-
 };
 
 #endif // MECHANIC_H

@@ -5,12 +5,11 @@
 
 class Director : public Employee
 {
-private:
-    const double SALARY_COEFFICIENT = 2;
+    static const double SALARY_COEFFICIENT;
 
 public:
     Director() = default;
-    Director(int id, string firstName, string secondName, date birthDate, date employementDate) : Employee(id, firstName, secondName, birthDate, employementDate, SALARY_COEFFICIENT){};
+    Director( string firstName, string secondName, date birthDate, date employementDate) : Employee( firstName, secondName, birthDate, employementDate, SALARY_COEFFICIENT){};
     void printEmployee() const;
 };
 

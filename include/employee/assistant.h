@@ -5,13 +5,10 @@
 
 class Assistant : public Employee
 {
-private:
-    const double SALARY_COEFFICIENT = 1;
-
 public:
+    static const double SALARY_COEFFICIENT ;
     Assistant() = default;
-    Assistant(int id, string firstName, string secondName, date birthDate, date employementDate) : Employee(id, firstName, secondName, birthDate, employementDate, SALARY_COEFFICIENT){};
+    Assistant(string firstName, string secondName, date birthDate, date employementDate) : Employee(firstName, secondName, birthDate, employementDate, SALARY_COEFFICIENT){};
     void printEmployee() const;
-
 };
 #endif // ASSISTANT_H
