@@ -1,8 +1,8 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
+#include <iostream>
 #include <string>
-
 using namespace std;
 
 class Employee
@@ -23,9 +23,9 @@ protected:
     double salaryCoefficient;
 
 public:
-    Employee(int id, string firstName, string secondName, date birthDate, date employementDate, double salaryCoefficient);
-    virtual void printEmployee() const = 0;
-    virtual double computeSalary() const = 0;
+    Employee(int id = 0, string firstName = "", string secondName = "", date birthDate = {0, 0, 0}, date employementDate = {0, 0, 0}, double salaryCoefficient = 0){};
+    virtual void printEmployee() const;
+    double computeSalary() const;
     virtual ~Employee(){};
 };
 
