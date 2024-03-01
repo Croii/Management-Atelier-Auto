@@ -12,12 +12,9 @@ void Employee::printEmployee() const
 
 double Employee::computeSalary() const
 {
-    // get the current system time
-    time_t systemTime = time(0);
-
-    tm *ltm = localtime(&systemTime);
-    // ltm->tm_year contains the years elapsed since 1900
-    int currentYear = 1900 + ltm->tm_year;
-    
-    return (currentYear - employementDate.year) * salaryCoefficient * 1000;
+    return (getCurrentYear() - employementDate.year) * salaryCoefficient * 1000;
+}
+void Employee::printName() const
+{
+    cout << firstName << " " << secondName;
 }

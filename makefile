@@ -1,44 +1,35 @@
-# Makefile for the project
+CC := g++
+CFLAGS := -Wall -Iinclude
+LDFLAGS :=
 
-# Compiler and compiler flags
-CXX = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra
+SRCDIR := src
+OBJDIR := obj
+BINDIR := bin
 
-# Directories
-SRC_DIR = src
-INCLUDE_DIR = include
-OBJ_DIR = obj
-BIN_DIR = bin
-TEST_DIR = test
+# Source files
+SOURCES := $(wildcard $(SRCDIR)/**/*.cpp $(SRCDIR)/*.cpp) utils/date.cpp
+# Object files
+OBJECTS := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(filter-out utils/date.cpp, $(SOURCES))) $(OBJDIR)/date.o
 
-# Source files and objeqct files
-MAIN_SRC = $(SRC_DIR)/main.cpp
-ASSISTANT_SRC = $(SRC_DIR)/employee/assistant.cpp
-
-SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/employee/*.cpp)
-OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
+# Executable
+EXECUTABLE := $(BINDIR)/main
 
 # Targets
-all: $(BIN_DIR)/main
+all: $(EXECUTABLE)
 
-$(BIN_DIR)/main: $(OBJ_FILES)
-	@mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+$(EXECUTABLE): $(OBJECTS)
+	@mkdir -p $(BINDIR)
+	$(CC) $(LDFLAGS) -o $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(OBJ_DIR) $(OBJ_DIR)/employee
-	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-# Test target
-test: $(BIN_DIR)/test
-	./$(BIN_DIR)/test
+$(OBJDIR)/date.o: utils/date.cpp
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(BIN_DIR)/test: $(TEST_DIR)/test.cpp $(OBJ_FILES)
-	@mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) $^ -o $@
-
-# Clean target
 clean:
-	rm -rf $(BIN_DIR) $(OBJ_DIR)
+	rm -rf $(OBJDIR) $(BINDIR)
 
-.PHONY: all test clean
+.PHONY: all clean
