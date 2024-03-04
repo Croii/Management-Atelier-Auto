@@ -63,31 +63,40 @@ void Menu::printEmployeeMenu(Workshop &workshop)
     cout << "1.Add an employee" << endl;
     cout << "2.Delete an employee" << endl;
     cout << "3.Print employees" << endl;
-    cout << "4.Finish a car" << endl;
+    cout << "4.Assign a car to an employee" << endl; // "4.Assign a car to an employee\n5.Finish a car\n
+    cout << "5.Finish a car" << endl;
 
-    int input = Menu::getUserInput(4);
+    int input = Menu::getUserInput(5);
     switch (input)
     {
     case 1:
         system("clear"); // clearing console
         workshop.addEmployee();
         system("clear"); // clearing console
-
         break;
+
     case 2:
         system("clear"); // clearing console
-        // workshop.deleteEmployee();
+        workshop.deleteEmployee();
         break;
+
     case 3:
         system("clear"); // clearing console
         workshop.printEmployees();
         cout << "Press enter to continue...";
         getchar();
         getchar();
+        system("clear");
         break;
+
     case 4:
         system("clear"); // clearing console
-        // workshop.finishCar();
+        workshop.assignCar();
+        break;
+
+    case 5:
+        system("clear"); // clearing console
+        workshop.finishCar();
         break;
     }
     // Menu::printMenu(workshop);

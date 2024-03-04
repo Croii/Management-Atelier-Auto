@@ -13,7 +13,6 @@
 
 #include "../menu/menu.h"
 
-
 #include <map>
 #include <utility>
 #include <vector>
@@ -32,6 +31,10 @@ public:
     bool isEmpty() const;
     void assignTask(Vehicle *vehicle, Employee *employee = nullptr);
     void addEmployee();
+    void deleteEmployee();
+    void assignCar();
+    void finishCar();
+
     bool checkAvailability(Employee *employee);
     void printEmployees() const;
 };

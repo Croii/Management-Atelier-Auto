@@ -16,12 +16,17 @@ protected:
     bool isDiesel;
 
 public:
+    Vehicle() : kmCount(0), manufacturingDate(date()), isDiesel(false)
+    {
+        id = ++ID;
+    };
     Vehicle(int kmCount, date manufacturingDate, bool isDiesel) : kmCount(kmCount), manufacturingDate(manufacturingDate), isDiesel(isDiesel)
     {
         id = ++ID;
     };
 
     virtual float computeInsurance(bool DISCOUNT) const = 0;
+    
     virtual ~Vehicle(){};
 };
 
