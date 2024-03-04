@@ -18,6 +18,7 @@ private:
 public:
     static void printMenu(Workshop &workshop);
     static void printEmployeeMenu(Workshop &workshop);
+    static void printVehicleMenu(Workshop &workshop);
     static int getUserInput(int range);
 };
 

@@ -145,6 +145,23 @@ void Workshop::finishCar()
 
 }
 
+void Workshop::printVehicles() const
+{
+
+    for (auto employee : employees)
+    {
+        employee.first->printName();
+        cout << endl;
+        int idx = 1;
+        for (auto vehicle : employee.second)
+        {
+            cout << idx << '.' << typeid(*vehicle).name() << endl;
+            idx++;
+        }
+    }
+}
+
+
 bool Workshop::checkAvailability(Employee *employee)
 {
     int truckCount = 0;

@@ -1,9 +1,10 @@
 #include "../../include/menu/menu.h"
+#include "menu.h"
 
 void Menu::printMenu(Workshop &workshop)
 {
     cout << "1.Employee menu" << endl;
-    cout << "2.Fix a car" << endl;
+    cout << "2.Car menu" << endl;
     cout << "3.Exit()" << endl;
 
     int input = Menu::getUserInput(3);
@@ -15,7 +16,7 @@ void Menu::printMenu(Workshop &workshop)
         break;
     case 2:
         system("clear"); // clearing console
-        // workshop.fixCar();
+        Menu::printVehicleMenu(workshop);
         break;
 
     case 3:
@@ -63,10 +64,8 @@ void Menu::printEmployeeMenu(Workshop &workshop)
     cout << "1.Add an employee" << endl;
     cout << "2.Delete an employee" << endl;
     cout << "3.Print employees" << endl;
-    cout << "4.Assign a car to an employee" << endl; // "4.Assign a car to an employee\n5.Finish a car\n
-    cout << "5.Finish a car" << endl;
 
-    int input = Menu::getUserInput(5);
+    int input = Menu::getUserInput(3);
     switch (input)
     {
     case 1:
@@ -100,4 +99,31 @@ void Menu::printEmployeeMenu(Workshop &workshop)
         break;
     }
     // Menu::printMenu(workshop);
+}
+void Menu::printVehicleMenu(Workshop &workshop)
+{
+    cout << "1.Assign a car to an employee" << endl;
+    cout << "2.Finish a car" << endl;
+    cout << "3.Print all cars" << endl;
+
+    int input = Menu::getUserInput(3);
+    switch (input)
+    {
+    case 1:
+        system("clear"); // clearing console
+        workshop.assignCar();
+        break;
+    case 2:
+        system("clear"); // clearing console
+        workshop.finishCar();
+        break;
+    case 3:
+        system("clear"); // clearing console
+        workshop.printVehicles();
+        cout << "Press enter to continue...";
+        getchar();
+        getchar();
+        system("clear");
+        break;
+    }
 }

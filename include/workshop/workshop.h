@@ -34,6 +34,7 @@ public:
     void deleteEmployee();
     void assignCar();
     void finishCar();
+    void printVehicles() const;
 
     bool checkAvailability(Employee *employee);
     void printEmployees() const;
