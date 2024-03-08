@@ -28,13 +28,8 @@ Planned functionalities:
 - Workshop can accommodate multiple employees who repair various types of vehicles.
 - Employees have restrictions on the number and types of vehicles they can handle simultaneously.
 - Real-time updates on workshop status and queue management.
-
-Planned functionalities:
 - Assigning tasks to employees
 - Handling workshop activities and queue management
-
-### IV. Reporting (Planned)
-- Reports can be generated for evaluating workshop activity, including workload, top-performing employees, and more.
 
 ## Installation and Usage
 
