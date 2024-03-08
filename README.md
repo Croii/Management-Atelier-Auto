@@ -1,7 +1,5 @@
 # Workshop Management System
 
-This project aims to develop a Workshop Management System for an auto workshop. While the system is still under development, it provides a foundation for managing employees, vehicles, and workshop activities.
-
 ## Features
 
 ### I. Employees
