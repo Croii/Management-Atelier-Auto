@@ -2,7 +2,7 @@
 
 This project aims to develop a Workshop Management System for an auto workshop. While the system is still under development, it provides a foundation for managing employees, vehicles, and workshop activities.
 
-## Features (Work in Progress)
+## Features
 
 ### I. Employees
 - **Director**: Highest-ranking employee with a salary coefficient of 2.
