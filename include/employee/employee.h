@@ -11,9 +11,9 @@ using namespace std;
 class Employee
 {
 protected:
-    static int ID;
+    static int ID;// total number of employees
 
-    int id;
+    int id;//employee's id
     string firstName;
     string secondName;
     date birthDate;
